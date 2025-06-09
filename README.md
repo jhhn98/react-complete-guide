@@ -1,1 +1,1 @@
-# -react-complete-guide-course-resources
+# react-complete-guide
