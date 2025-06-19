@@ -43,10 +43,19 @@ function App() {
                 <section id="examples">
                     <h2>Examples</h2>
                     <menu>
-                        <TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TabButton>
+                        {/*<TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TabButton>
                         <TabButton isSelected={selectedTopic === 'jsx'} onSelect={() => handleSelect('jsx')}>JSX</TabButton>
                         <TabButton isSelected={selectedTopic === 'props'} onSelect={() => handleSelect('props')}>Props</TabButton>
-                        <TabButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect('state')}>State</TabButton>
+                        <TabButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect('state')}>State</TabButton>*/}
+                        {CORE_CONCEPTS.map((concept) => (
+                            <TabButton
+                                key={concept.title}
+                                isSelected={selectedTopic === concept.title.toLowerCase()}
+                                onSelect={() => handleSelect(concept.title.toLowerCase())}
+                            >
+                                {concept.title}
+                            </TabButton>
+                        ))}
                     </menu>
                     {/*
                     조건출력문 방법1
