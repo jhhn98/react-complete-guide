@@ -5,8 +5,8 @@ export default function Player({initialName, symbol, isActive, onChangeName }) {
     const [playerName, setPlayerName] = useState(initialName);
 
     function handleEditClick() {
-        //setIsEditing(!isEditing);
-        setIsEditing((editing) => !editing); //상태 변경 시 이전의 상태값에 기반하여 변경한다면 이 함수 형태를 써야한다.
+        //상태 변경 시 이전의 상태값에 기반하여 변경한다면 이 함수 형태를 써야한다. 이유는 가장 최신의 상태값을 반환하기 때문.
+        setIsEditing((editing) => !editing);
         if(isEditing) {
             onChangeName(symbol, playerName);
         }
@@ -17,11 +17,9 @@ export default function Player({initialName, symbol, isActive, onChangeName }) {
     }
 
     let editablePlayerName = <span className="player-name">{playerName}</span>;
-    //let btnCaption = 'Edit';
 
     if (isEditing) {
         editablePlayerName = <input type="text" required value={playerName} onChange={handleChange} />;
-        //btnCaption = 'Save';
     }
     return (
         <li className={isActive ? 'active' : undefined}>
